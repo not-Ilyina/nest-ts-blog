@@ -12,7 +12,7 @@ export class UserService {
     private readonly userRepository: Repository<User>,
   ) {}
   async create(createUserDto: CreateUserDto) {
-    createUserDto.createTime = createUserDto.updateTime = new Date();
+    createUserDto.ctime = createUserDto.mtime = new Date();
     return await this.userRepository.save(createUserDto);
   }
 
@@ -20,7 +20,7 @@ export class UserService {
     return await this.userRepository.find({
       where: {},
       order: {
-        updateTime: 'DESC',
+        mtime: 'DESC',
       },
     });
   }
@@ -32,7 +32,7 @@ export class UserService {
   }
 
   async update(updateUserDto: UpdateUserDto) {
-    updateUserDto.updateTime = new Date();
+    updateUserDto.mtime = new Date();
     const { id } = updateUserDto;
     console.log('this', this);
     return await this.userRepository.update(id, updateUserDto);

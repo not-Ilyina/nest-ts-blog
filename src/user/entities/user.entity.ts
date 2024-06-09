@@ -18,7 +18,7 @@ export class User {
   @Column({ nullable: true })
   email: string;
   @CreateDateColumn({ type: 'timestamp', name: 'create_time' })
-  createTime: Date;
+  ctime: Date;
   @UpdateDateColumn({ type: 'timestamp', name: 'update_time' })
-  updateTime: Date;
+  mtime: Date;
 }
