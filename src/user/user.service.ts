@@ -23,6 +23,7 @@ export class UserService {
         mtime: 'DESC',
       },
     });
+    // throw new HttpException('获取数据失败', HttpStatus.BAD_REQUEST);
   }
 
   async findOne(id: number) {
