@@ -24,8 +24,10 @@ export class ArticleService {
     });
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} article`;
+  async findOne(id: number) {
+    return await this.aritcleRepository.findOne({
+      where: { id },
+    });
   }
 
   async update(updateArticleDto: UpdateArticleDto) {

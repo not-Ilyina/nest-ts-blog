@@ -19,6 +19,8 @@ export class Article {
   @Column({ type: 'int', default: 0 })
   read: number;
   @Column({ type: 'int', default: 0 })
+  @Column({ type: 'int', default: 0 })
+  comment: number;
   collection: number;
   @Column({ type: 'varchar', length: 255 })
   img: string;

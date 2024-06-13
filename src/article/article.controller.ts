@@ -17,9 +17,9 @@ export class ArticleController {
     return this.articleService.findAll();
   }
 
-  @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.articleService.findOne(+id);
+  @Get()
+  findOne(@Param('id') id: number) {
+    return this.articleService.findOne(id);
   }
 
   @Post('edit')
