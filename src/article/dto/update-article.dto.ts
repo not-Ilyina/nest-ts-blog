@@ -2,8 +2,12 @@ import { PartialType } from '@nestjs/mapped-types';
 import { CreateArticleDto } from './create-article.dto';
 
 export class UpdateArticleDto extends PartialType(CreateArticleDto) {
-  id: string;
+  id: number;
   title: string;
-  ctime: Date;
-  mtime: Date;
+  sub_title: string;
+  like: number;
+  read: number;
+  collection: number;
+  img: string;
+  author: string;
 }

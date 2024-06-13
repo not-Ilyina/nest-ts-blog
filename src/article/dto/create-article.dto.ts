@@ -1,6 +1,9 @@
 export class CreateArticleDto {
-  id: string;
   title: string;
-  ctime: Date;
-  mtime: Date;
+  sub_title: string;
+  // like: number;
+  // read: number;
+  // collection: number;
+  img: string;
+  author: string;
 }
