@@ -1,4 +1,12 @@
-import { Controller, Get, Post, Body, Param, Delete } from '@nestjs/common';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Param,
+  Delete,
+  Query,
+} from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
@@ -18,7 +26,7 @@ export class ArticleController {
   }
 
   @Get()
-  findOne(@Param('id') id: number) {
+  findOne(@Query('id') id: number) {
     return this.articleService.findOne(id);
   }
 

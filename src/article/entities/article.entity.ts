@@ -14,6 +14,8 @@ export class Article {
   title: string;
   @Column({ type: 'varchar', length: 255 }) // win 因为使用 GBK 所以会乱码，MySQL 默认使用 utf8
   sub_title: string;
+  @Column({ type: 'varchar', length: 1000 })
+  content: string;
   @Column({ type: 'int', default: 0 })
   like: number;
   @Column({ type: 'int', default: 0 })
