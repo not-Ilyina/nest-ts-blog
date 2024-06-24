@@ -35,7 +35,6 @@ export class UserService {
   async update(updateUserDto: UpdateUserDto) {
     updateUserDto.mtime = new Date();
     const { id } = updateUserDto;
-    console.log('this', this);
     return await this.userRepository.update(id, updateUserDto);
   }
 

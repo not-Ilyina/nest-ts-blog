@@ -1,4 +1,4 @@
-import { Controller, Get, Query, Res } from '@nestjs/common';
+import { Controller, Get, Put, Query, Res } from '@nestjs/common';
 import { AppService } from './app.service';
 import { Response } from 'express';
 
@@ -18,5 +18,16 @@ export class AppController {
     const jsonp = `${callback}(${JSON.stringify(data)})`;
     res.setHeader('Content-Type', 'application/javascript');
     res.send(jsonp);
+  }
+  @Get('test')
+  getTest(@Res({ passthrough: true }) response: Response) {
+    response.cookie('key', '123321', {
+      expires: new Date('2024-09-10'),
+    });
+    return 'test';
+  }
+  @Put('test')
+  getTest1() {
+    return 'test';
   }
 }

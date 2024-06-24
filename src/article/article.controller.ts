@@ -6,10 +6,12 @@ import {
   Param,
   Delete,
   Query,
+  Res,
 } from '@nestjs/common';
 import { ArticleService } from './article.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { Response } from 'express';
 
 @Controller('article')
 export class ArticleController {
@@ -21,7 +23,11 @@ export class ArticleController {
   }
 
   @Get('list')
-  findAll() {
+  findAll(@Res({ passthrough: true }) response: Response) {
+    response.cookie('key', '123321', {
+      // httpOnly: true,
+      expires: new Date('2024-09-10'),
+    });
     return this.articleService.findAll();
   }
 
