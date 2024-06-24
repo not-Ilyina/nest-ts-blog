@@ -41,8 +41,8 @@ export class ArticleController {
     return this.articleService.update(updateArticleDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.articleService.remove(+id);
+  @Post('delete')
+  remove(@Body() updateArticleDto: UpdateArticleDto) {
+    return this.articleService.remove(updateArticleDto.id);
   }
 }

@@ -35,7 +35,7 @@ export class ArticleService {
     return await this.aritcleRepository.update(id, updateArticleDto);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} article`;
+  async remove(id: number) {
+    return await this.aritcleRepository.delete(id);
   }
 }
